@@ -2,10 +2,11 @@
 //assumes that wordList.js will already have been loaded
 
 const allWords = WORDLIST;
-const longWordsNoSpace = WORDLIST.filter(w => !w.includes(" "))
+
+const wordsWithNoSpace = WORDLIST.filter(w => !w.includes(" "));
+const longWordsNoSpace = wordsWithNoSpace
   .sort((a, b) => b.length - a.length)
   .slice(0, 10);
-
 const longWordsWithSpace = WORDLIST.filter(w => w.includes(" "))
   .sort((a, b) => b.length - a.length)
   .slice(0, 10);
@@ -16,7 +17,7 @@ function pick(arr) {
 }
 
 function showRandomWord() {
-  showInGiantWord(pick(allWords));
+  showInGiantWord(pick(wordsWithNoSpace));
 }
 function showLongWordWithSpace() {
   showInGiantWord(pick(longWordsWithSpace));
