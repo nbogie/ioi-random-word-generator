@@ -2,7 +2,11 @@
 //assumes that wordList.js will already have been loaded
 
 const allWords = WORDLIST;
-const bgColors = ["black", "white", "#a57835"];
+const bgColors = [
+  { value: "black" },
+  { value: "white" },
+  { value: "#a57835", useOnlyDarkText: true }
+];
 let bgColorIx = 0;
 
 const wordsWithNoSpace = WORDLIST.filter(w => !w.includes(" "));
@@ -23,7 +27,7 @@ function cycleBackgroundColor() {
   if (bgColorIx >= bgColors.length) {
     bgColorIx = 0;
   }
-  document.body.style.background = bgColors[bgColorIx];
+  document.body.style.background = bgColors[bgColorIx].value;
 }
 
 function showRandomWord() {
@@ -40,8 +44,13 @@ function showLongWordNoSpace() {
 
 function showInGiantWord(str) {
   const elem = document.getElementById("giantword");
-  const colorHex = _.shuffle(["ff", "00", "aa"]).join("");
-  elem.style.color = "#" + colorHex;
+
+  let colorStr = "#" + _.shuffle(["ff", "00", "aa"]).join("");
+  if (bgColors[bgColorIx].useOnlyDarkText) {
+    colorStr = "#000000";
+  }
+  elem.style.color = colorStr;
+
   elem.innerText = str;
 }
 
