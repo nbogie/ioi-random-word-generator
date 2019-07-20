@@ -49,9 +49,25 @@ function pick(arr) {
   return arr[ix];
 }
 
-function cycleBackgroundColor() {
-  const colorStr = bgColorsCycle.next().value;
-  document.body.style.background = colorStr;
+function giantWordElement() {
+  return document.getElementById("giantword");
+}
+
+function showInGiantWord(str) {
+  const elem = giantWordElement();
+
+  //  let colorStr = "#" + _.shuffle(["ff", "00", "aa"]).join("");
+
+  let colorStr;
+
+  if (bgColorsCycle.current().useOnlyDarkText) {
+    colorStr = "#000000";
+  } else {
+    const hue = Math.round(Math.random() * 360);
+    colorStr = `hsl(${hue}, 100%, 50%)`;
+  }
+  elem.style.color = colorStr;
+  elem.innerText = str;
 }
 
 function showRandomWord() {
@@ -66,36 +82,23 @@ function showLongWordNoSpace() {
   showInGiantWord(pick(longWordsNoSpace));
 }
 
-function showInGiantWord(str) {
-  const elem = document.getElementById("giantword");
-
-  //  let colorStr = "#" + _.shuffle(["ff", "00", "aa"]).join("");
-
-  let colorStr;
-
-  if (bgColorsCycle.current().useOnlyDarkText) {
-    colorStr = "#000000";
-  } else {
-    const hue = Math.round(Math.random() * 255);
-    colorStr = `hsl(${hue}, 100%, 50%)`;
-  }
-  elem.style.color = colorStr;
-
-  elem.innerText = str;
+function cycleBackgroundColor() {
+  const colorStr = bgColorsCycle.next().value;
+  document.body.style.background = colorStr;
 }
 
-function toggleTextRotation() {
-  const elem = document.getElementById("giantword");
-  elem.classList.toggle("rotated");
+function cycleFont() {
+  const fontName = fontsCycle.next();
+  document.body.style.fontFamily = fontName;
 }
 
 function randomiseFont() {
   document.body.style.fontFamily = fontsCycle.random();
 }
 
-function cycleFont() {
-  const fontName = fontsCycle.next();
-  document.body.style.fontFamily = fontName;
+function toggleTextRotation() {
+  const elem = giantWordElement();
+  elem.classList.toggle("rotated");
 }
 
 function handleKeypress(e) {
