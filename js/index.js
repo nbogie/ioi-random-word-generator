@@ -19,17 +19,25 @@ function pick(arr) {
 function showRandomWord() {
   showInGiantWord(pick(wordsWithNoSpace));
 }
+
 function showLongWordWithSpace() {
   showInGiantWord(pick(longWordsWithSpace));
 }
+
 function showLongWordNoSpace() {
   showInGiantWord(pick(longWordsNoSpace));
 }
+
 function setPageToBlack() {
   document.body.style.background = "black";
 }
+
 function setPageToWhite() {
   document.body.style.background = "white";
+}
+
+function setPageToCardboard() {
+  document.body.style.background = "#a58855";
 }
 
 function showInGiantWord(str) {
@@ -44,10 +52,6 @@ function toggleTextRotation() {
   elem.classList.toggle("rotated");
 }
 
-showRandomWord();
-
-document.body.onkeydown = handleKeypress;
-
 function handleKeypress(e) {
   console.log({ handlingKeypress: e.code });
   switch (e.code) {
@@ -56,14 +60,20 @@ function handleKeypress(e) {
       showLongWordNoSpace();
       break;
     case "Digit2":
+      setPageToCardboard();
       showRandomWord();
       break;
     case "Digit3":
       toggleTextRotation();
       setPageToWhite();
-      showLongWordWithSpace();
+      showRandomWord();
       break;
     default:
       showRandomWord();
   }
 }
+
+window.onload = function() {
+  document.body.onkeydown = handleKeypress;
+  showRandomWord();
+};
