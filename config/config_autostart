@@ -1,0 +1,10 @@
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xscreensaver -no-splash
+@point-rpi
+@chromium-browser --incognito --start-maximized --start-fullscreen --noerrdialogs --disable-infobars file:///home/pi/ioi-random-word-generator/index.html
+@xset s noblank
+@xset s off
+@xset -dpms
+@unclutter -idle 0.1 -root
+python3 /home/pi/ioi-random-word-generator/button_listener.py

@@ -1,0 +1,8 @@
+pi@stumble:~ $ cat make_backup.sh 
+
+cp ~/.config/chromium/Default/Preferences bk
+cp ~/.config/lxsession/LXDE-pi/autostart bk/config_autostart
+cp /etc/kbd/config bk/kbd_config
+cp /etc/xdg/lxsession/LXDE/autostart bk/autostart1
+cp  /etc/xdg/lxsession/LXDE-pi/autostart bk/autostart2
+
