@@ -2,7 +2,13 @@
 //assumes that wordList.js will already have been loaded
 
 const allWords = WORDLIST;
-const longWords = WORDLIST.sort((a, b) => b.length - a.length).slice(0, 10);
+const longWordsNoSpace = WORDLIST.filter(w => !w.includes(" "))
+  .sort((a, b) => b.length - a.length)
+  .slice(0, 10);
+
+const longWordsWithSpace = WORDLIST.filter(w => w.includes(" "))
+  .sort((a, b) => b.length - a.length)
+  .slice(0, 10);
 
 function pick(arr) {
   const ix = Math.floor(Math.random() * arr.length);
@@ -12,8 +18,11 @@ function pick(arr) {
 function showRandomWord() {
   showInGiantWord(pick(allWords));
 }
-function showLongWord() {
-  showInGiantWord(pick(longWords));
+function showLongWordWithSpace() {
+  showInGiantWord(pick(longWordsWithSpace));
+}
+function showLongWordNoSpace() {
+  showInGiantWord(pick(longWordsNoSpace));
 }
 
 function showInGiantWord(str) {
@@ -29,5 +38,17 @@ document.body.onkeydown = handleKeypress;
 
 function handleKeypress(e) {
   console.log({ handlingKeypress: e.code });
-  showLongWord();
+  switch (e.code) {
+    case "Digit1":
+      showLongWordNoSpace();
+      break;
+    case "Digit2":
+      showRandomWord();
+      break;
+    case "Digit3":
+      showLongWordWithSpace();
+      break;
+    default:
+      showRandomWord();
+  }
 }
