@@ -2,6 +2,8 @@
 //assumes that wordList.js will already have been loaded
 
 const allWords = WORDLIST;
+const bgColors = ["black", "white", "#a57835"];
+let bgColorIx = 0;
 
 const wordsWithNoSpace = WORDLIST.filter(w => !w.includes(" "));
 const longWordsNoSpace = wordsWithNoSpace
@@ -16,6 +18,14 @@ function pick(arr) {
   return arr[ix];
 }
 
+function cycleBackgroundColor() {
+  bgColorIx++;
+  if (bgColorIx >= bgColors.length) {
+    bgColorIx = 0;
+  }
+  document.body.style.background = bgColors[bgColorIx];
+}
+
 function showRandomWord() {
   showInGiantWord(pick(wordsWithNoSpace));
 }
@@ -26,18 +36,6 @@ function showLongWordWithSpace() {
 
 function showLongWordNoSpace() {
   showInGiantWord(pick(longWordsNoSpace));
-}
-
-function setPageToBlack() {
-  document.body.style.background = "black";
-}
-
-function setPageToWhite() {
-  document.body.style.background = "white";
-}
-
-function setPageToCardboard() {
-  document.body.style.background = "#a58855";
 }
 
 function showInGiantWord(str) {
@@ -56,16 +54,14 @@ function handleKeypress(e) {
   console.log({ handlingKeypress: e.code });
   switch (e.code) {
     case "Digit1":
-      setPageToBlack();
+      cycleBackgroundColor();
       showLongWordNoSpace();
       break;
     case "Digit2":
-      setPageToCardboard();
       showRandomWord();
       break;
     case "Digit3":
       toggleTextRotation();
-      setPageToWhite();
       showRandomWord();
       break;
     default:
