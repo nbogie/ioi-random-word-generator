@@ -8,6 +8,8 @@ const bgColors = [
   { value: "#a57835", useOnlyDarkText: true }
 ];
 let bgColorIx = 0;
+const allFonts = ["Acme", "Allerta Stencil", "Anton", "Concert One"];
+let fontIx = 0;
 
 const wordsWithNoSpace = WORDLIST.filter(w => !w.includes(" "));
 const longWordsNoSpace = wordsWithNoSpace
@@ -45,9 +47,14 @@ function showLongWordNoSpace() {
 function showInGiantWord(str) {
   const elem = document.getElementById("giantword");
 
-  let colorStr = "#" + _.shuffle(["ff", "00", "aa"]).join("");
+  //  let colorStr = "#" + _.shuffle(["ff", "00", "aa"]).join("");
+
+  let colorStr;
   if (bgColors[bgColorIx].useOnlyDarkText) {
     colorStr = "#000000";
+  } else {
+    const hue = Math.round(Math.random() * 255);
+    colorStr = `hsl(${hue}, 100%, 50%)`;
   }
   elem.style.color = colorStr;
 
@@ -58,12 +65,24 @@ function toggleTextRotation() {
   const elem = document.getElementById("giantword");
   elem.classList.toggle("rotated");
 }
+function randomiseFont() {
+  document.body.style.fontFamily = pick(allFonts);
+}
+
+function cycleFont() {
+  fontIx++;
+  if (fontIx >= allFonts.length) {
+    fontIx = 0;
+  }
+  document.body.style.fontFamily = allFonts[fontIx];
+}
 
 function handleKeypress(e) {
   console.log({ handlingKeypress: e.code });
   switch (e.code) {
     case "Digit1":
       cycleBackgroundColor();
+      randomiseFont();
       showLongWordNoSpace();
       break;
     case "Digit2":
@@ -80,5 +99,6 @@ function handleKeypress(e) {
 
 window.onload = function() {
   document.body.onkeydown = handleKeypress;
+  toggleTextRotation();
   showRandomWord();
 };
