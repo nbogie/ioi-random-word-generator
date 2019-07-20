@@ -25,6 +25,12 @@ function showLongWordWithSpace() {
 function showLongWordNoSpace() {
   showInGiantWord(pick(longWordsNoSpace));
 }
+function setPageToBlack() {
+  document.body.style.background = "black";
+}
+function setPageToWhite() {
+  document.body.style.background = "white";
+}
 
 function showInGiantWord(str) {
   const elem = document.getElementById("giantword");
@@ -41,12 +47,14 @@ function handleKeypress(e) {
   console.log({ handlingKeypress: e.code });
   switch (e.code) {
     case "Digit1":
+      setPageToBlack();
       showLongWordNoSpace();
       break;
     case "Digit2":
       showRandomWord();
       break;
     case "Digit3":
+      setPageToWhite();
       showLongWordWithSpace();
       break;
     default:
