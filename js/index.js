@@ -2,20 +2,45 @@
 //assumes that wordList.js will already have been loaded
 
 const allWords = WORDLIST;
-const bgColors = [
+
+class Cycle {
+  constructor(vals) {
+    this.vals = vals;
+    this.ix = 0;
+  }
+
+  current = () => this.vals[this.ix];
+
+  next = () => {
+    this.ix++;
+    if (this.ix >= this.vals.length) {
+      this.ix = 0;
+    }
+    return this.vals[this.ix];
+  };
+
+  random = () => pick(this.vals);
+}
+
+const bgColorsCycle = new Cycle([
   { value: "black" },
   { value: "#a57835", useOnlyDarkText: true },
   { value: "white" }
-];
-let bgColorIx = 0;
-const allFonts = ["Acme", "Allerta Stencil", "Anton", "Concert One"];
-let fontIx = 0;
+]);
 
-const wordsWithNoSpace = WORDLIST.filter(w => !w.includes(" "));
+const fontsCycle = new Cycle([
+  "Acme",
+  "Allerta Stencil",
+  "Anton",
+  "Concert One"
+]);
+
+const wordsWithNoSpace = allWords.filter(w => !w.includes(" "));
 const longWordsNoSpace = wordsWithNoSpace
   .sort((a, b) => b.length - a.length)
   .slice(0, 10);
-const longWordsWithSpace = WORDLIST.filter(w => w.includes(" "))
+const longWordsWithSpace = allWords
+  .filter(w => w.includes(" "))
   .sort((a, b) => b.length - a.length)
   .slice(0, 10);
 
@@ -25,11 +50,8 @@ function pick(arr) {
 }
 
 function cycleBackgroundColor() {
-  bgColorIx++;
-  if (bgColorIx >= bgColors.length) {
-    bgColorIx = 0;
-  }
-  document.body.style.background = bgColors[bgColorIx].value;
+  const colorStr = bgColorsCycle.next().value;
+  document.body.style.background = colorStr;
 }
 
 function showRandomWord() {
@@ -50,7 +72,8 @@ function showInGiantWord(str) {
   //  let colorStr = "#" + _.shuffle(["ff", "00", "aa"]).join("");
 
   let colorStr;
-  if (bgColors[bgColorIx].useOnlyDarkText) {
+
+  if (bgColorsCycle.current().useOnlyDarkText) {
     colorStr = "#000000";
   } else {
     const hue = Math.round(Math.random() * 255);
@@ -65,16 +88,14 @@ function toggleTextRotation() {
   const elem = document.getElementById("giantword");
   elem.classList.toggle("rotated");
 }
+
 function randomiseFont() {
-  document.body.style.fontFamily = pick(allFonts);
+  document.body.style.fontFamily = fontsCycle.random();
 }
 
 function cycleFont() {
-  fontIx++;
-  if (fontIx >= allFonts.length) {
-    fontIx = 0;
-  }
-  document.body.style.fontFamily = allFonts[fontIx];
+  const fontName = fontsCycle.next();
+  document.body.style.fontFamily = fontName;
 }
 
 function handleKeypress(e) {
