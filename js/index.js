@@ -4,8 +4,8 @@
 const allWords = WORDLIST;
 const bgColors = [
   { value: "black" },
-  { value: "white" },
-  { value: "#a57835", useOnlyDarkText: true }
+  { value: "#a57835", useOnlyDarkText: true },
+  { value: "white" }
 ];
 let bgColorIx = 0;
 const allFonts = ["Acme", "Allerta Stencil", "Anton", "Concert One"];
@@ -99,6 +99,9 @@ function handleKeypress(e) {
 
 window.onload = function() {
   document.body.onkeydown = handleKeypress;
+  cycleFont();
+  cycleBackgroundColor();
   toggleTextRotation();
+
   showRandomWord();
 };
