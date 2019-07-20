@@ -32,7 +32,8 @@ const fontsCycle = new Cycle([
   "Acme",
   "Allerta Stencil",
   "Anton",
-  "Concert One"
+  "Concert One",
+  "Barrio"
 ]);
 
 const wordsWithNoSpace = allWords.filter(w => !w.includes(" "));

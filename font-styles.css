@@ -41,3 +41,14 @@
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url("./fonts/concert-one-v10-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* barrio-regular - latin */
+@font-face {
+  font-family: "Barrio";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Barrio Regular"), local("Barrio-Regular"),
+    url("./fonts/barrio-v4-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/barrio-v4-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
