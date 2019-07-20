@@ -39,6 +39,11 @@ function showInGiantWord(str) {
   elem.innerText = str;
 }
 
+function toggleTextRotation() {
+  const elem = document.getElementById("giantword");
+  elem.classList.toggle("rotated");
+}
+
 showRandomWord();
 
 document.body.onkeydown = handleKeypress;
@@ -54,6 +59,7 @@ function handleKeypress(e) {
       showRandomWord();
       break;
     case "Digit3":
+      toggleTextRotation();
       setPageToWhite();
       showLongWordWithSpace();
       break;

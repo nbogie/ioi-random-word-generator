@@ -9,14 +9,17 @@ body {
 .container {
   margin: 0px auto;
   display: flex;
-
   flex-direction: column;
   justify-content: space-around;
 }
 
 #giantword {
-  margin-top: 120px;
+  margin-top: 300px;
   padding: 10px;
   text-align: center;
-  font-size: 82pt;
+  font-size: 128pt;
+}
+
+.rotated {
+  transform: rotate(180deg);
 }
