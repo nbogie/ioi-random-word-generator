@@ -158,7 +158,6 @@ const WORDLIST = [
   "Elastic",
   "Emerald",
   "Empire",
-  "Encyclopedia",
   "End",
   "Entrance",
   "Error",
