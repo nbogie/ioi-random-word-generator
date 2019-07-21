@@ -31,9 +31,15 @@ const bgColorsCycle = new Cycle([
 const fontsCycle = new Cycle([
   "Acme",
   "Allerta Stencil",
-  "Anton",
   "Concert One",
-  "Barrio"
+  "Barrio",
+  "Sedgwick Ave",
+  "Sedgwick Ave Display",
+  "Londrina Sketch",
+  "Cabin Sketch",
+  "Ranchers",
+  "Codystar",
+  "Ribeye"
 ]);
 
 const wordsWithNoSpace = allWords.filter(w => !w.includes(" "));
@@ -88,13 +94,17 @@ function cycleBackgroundColor() {
   document.body.style.background = colorStr;
 }
 
-function cycleFont() {
-  const fontName = fontsCycle.next();
+function setFont(fontName) {
+  console.log(`font: ${fontName}`);
   document.body.style.fontFamily = fontName;
 }
 
+function cycleFont() {
+  setFont(fontsCycle.next());
+}
+
 function randomiseFont() {
-  document.body.style.fontFamily = fontsCycle.random();
+  setFont(fontsCycle.random());
 }
 
 function toggleTextRotation() {
@@ -103,7 +113,7 @@ function toggleTextRotation() {
 }
 
 function handleKeypress(e) {
-  console.log({ handlingKeypress: e.code });
+  console.log(`keypress: ${e.code}`);
   switch (e.code) {
     case "Digit1":
       cycleBackgroundColor();

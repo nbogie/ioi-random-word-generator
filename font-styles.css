@@ -20,17 +20,6 @@
       url("./fonts/allerta-stencil-v10-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* anton-regular - latin */
-@font-face {
-  font-family: "Anton";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Anton Regular"), local("Anton-Regular"),
-    url("./fonts/anton-v11-latin-regular.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("./fonts/anton-v11-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
 /* concert-one-regular - latin */
 @font-face {
   font-family: "Concert One";
@@ -51,4 +40,82 @@
     url("./fonts/barrio-v4-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url("./fonts/barrio-v4-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* sedgwick-ave-regular - latin */
+@font-face {
+  font-family: "Sedgwick Ave";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Sedgwick Ave Regular"), local("SedgwickAve-Regular"),
+    url("./fonts/sedgwick-ave-v5-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/sedgwick-ave-v5-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* sedgwick-ave-display-regular - latin */
+@font-face {
+  font-family: "Sedgwick Ave Display";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Sedgwick Ave Display Regular"),
+    local("SedgwickAveDisplay-Regular"),
+    url("./fonts/sedgwick-ave-display-v5-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/sedgwick-ave-display-v5-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* londrina-sketch-regular - latin */
+@font-face {
+  font-family: "Londrina Sketch";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Londrina Sketch Regular"), local("LondrinaSketch-Regular"),
+    url("./fonts/londrina-sketch-v8-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/londrina-sketch-v8-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* cabin-sketch-700 - latin */
+@font-face {
+  font-family: "Cabin Sketch";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Cabin Sketch Bold"), local("CabinSketch-Bold"),
+    url("./fonts/cabin-sketch-v13-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/cabin-sketch-v13-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* ranchers-regular - latin */
+@font-face {
+  font-family: "Ranchers";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ranchers"), local("Ranchers-Regular"),
+    url("./fonts/ranchers-v7-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/ranchers-v7-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* codystar-regular - latin */
+@font-face {
+  font-family: "Codystar";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Codystar"),
+    url("./fonts/codystar-v7-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/codystar-v7-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* ribeye-regular - latin */
+@font-face {
+  font-family: "Ribeye";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ribeye"), local("Ribeye-Regular"),
+    url("./fonts/ribeye-v8-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/ribeye-v8-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
