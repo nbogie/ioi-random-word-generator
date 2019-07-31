@@ -95,7 +95,6 @@ function cycleBackgroundColor() {
 }
 
 function setFont(fontName) {
-  console.log(`font: ${fontName}`);
   document.body.style.fontFamily = fontName;
 }
 
@@ -116,16 +115,18 @@ function handleKeypress(e) {
   console.log(`keypress: ${e.code}`);
   switch (e.code) {
     case "Digit1":
-      cycleBackgroundColor();
       randomiseFont();
-      showLongWordNoSpace();
+      showRandomWord();
       break;
     case "Digit2":
       showRandomWord();
       break;
     case "Digit3":
-      toggleTextRotation();
+      cycleBackgroundColor();
       showRandomWord();
+      break;
+    case "Digit4":
+      toggleTextRotation();
       break;
     default:
       showRandomWord();
