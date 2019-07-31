@@ -8,18 +8,19 @@ class Cycle {
     this.vals = vals;
     this.ix = 0;
   }
-
-  current = () => this.vals[this.ix];
-
-  next = () => {
+  current() {
+    return this.vals[this.ix];
+  }
+  next() {
     this.ix++;
     if (this.ix >= this.vals.length) {
       this.ix = 0;
     }
     return this.vals[this.ix];
-  };
-
-  random = () => pick(this.vals);
+  }
+  random() {
+    return pick(this.vals);
+  }
 }
 
 const bgColorsCycle = new Cycle([
