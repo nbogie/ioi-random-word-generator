@@ -30,10 +30,8 @@ const bgColorsCycle = new Cycle([
 ]);
 
 const fontsCycle = new Cycle([
-  "Concert One",
   "Allerta Stencil",
   "Barrio",
-  "Sedgwick Ave",
   "Sedgwick Ave Display",
   "Londrina Sketch",
   "Cabin Sketch",
