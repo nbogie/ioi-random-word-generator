@@ -1,5 +1,6 @@
 body,
 html {
+  /* needed to valign items */
   height: 100%;
 }
 body {
@@ -10,6 +11,7 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  /* needed to valign items */
   align-items: center;
 }
 
